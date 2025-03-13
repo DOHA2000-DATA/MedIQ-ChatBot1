@@ -1,6 +1,8 @@
 # MedIQ-ChatBot1
 
-# MedIQ-ChatBot
+
+![249312156-423d76c6-98fd-4365-8fee-a55f45fd6cd6](https://github.com/user-attachments/assets/6a3dc27d-69d0-422f-a691-ada72506fc57)
+
 
 ## 📌 Description
 MedIQ-ChatBot est un chatbot basé sur Flask, conçu pour répondre à des questions médicales en utilisant des intentions définies dans un fichier JSON. Il est développé avec **LSTM (Long Short-Term Memory), un type de RNN (Recurrent Neural Network)**, en utilisant **Keras et TensorFlow** pour l'entraînement et la gestion des modèles d'intelligence artificielle. Il est déployable avec Docker et intègre des pipelines CI/CD via GitHub Actions.
