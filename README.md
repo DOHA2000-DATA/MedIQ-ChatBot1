@@ -1,84 +1,83 @@
-# MedIQ-ChatBot1
+[![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![DockerHub](https://img.shields.io/badge/DockerHub-0db7ed?style=flat-square&logo=docker&logoColor=white)](https://hub.docker.com/)
+[![GCP](https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=google-cloud&logoColor=white)](https://cloud.google.com/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)](https://github.com/features/actions)
 
+# MedIQ-ChatBot
 
-![249312156-423d76c6-98fd-4365-8fee-a55f45fd6cd6](https://github.com/user-attachments/assets/6a3dc27d-69d0-422f-a691-ada72506fc57)
+## Introduction
+MedIQ ChatBot is a smart and intuitive platform designed to provide you with medical information and assistance in a convenient and personalized manner. MedIQ chatbot leverages advanced natural language processing and deep learning techniques to simulate a virtual doctor's appointment, addressing your medical queries and concerns.
 
+Technologies used in this project
+* Flask
+* Streamlit
+* Docker
+* Google Cloud Platform
+* GitHub CI/CD pipline
 
-## 📌 Description
-MedIQ-ChatBot est un chatbot basé sur Flask, conçu pour répondre à des questions médicales en utilisant des intentions définies dans un fichier JSON. Il est développé avec **LSTM (Long Short-Term Memory), un type de RNN (Recurrent Neural Network)**, en utilisant **Keras et TensorFlow** pour l'entraînement et la gestion des modèles d'intelligence artificielle. Il est déployable avec Docker et intègre des pipelines CI/CD via GitHub Actions.
+## Files
 
-## 🚀 Fonctionnalités
-- Répond aux questions basées sur des intentions pré-entraînées avec un modèle de deep learning (LSTM RNN)
-- Utilise **TensorFlow et Keras** pour entraîner le modèle et effectuer des prédictions
-- Utilise Flask pour gérer les requêtes HTTP
-- Déployable avec Docker et Docker Compose
-- Intègre des workflows CI/CD pour automatiser le déploiement
-
-## 🛠️ Installation et Exécution
-
-### Prérequis
-- Python 3.x
-- pip
-- Docker (optionnel pour le déploiement via conteneur)
-
-### Installation
-1. **Cloner le dépôt**
-   ```bash
-   git clone https://github.com/VOTRE_NOM_UTILISATEUR/NOM_DU_REPO.git
-   cd NOM_DU_REPO
-   ```
-2. **Créer un environnement virtuel (optionnel mais recommandé)**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Sur Windows : venv\Scripts\activate
-   ```
-3. **Installer les dépendances**
-   ```bash
-   pip install -r flask/requirements.txt
-   ```
-
-### Entraînement du modèle
-Si vous souhaitez réentraîner le modèle avec de nouvelles données, exécutez :
-```bash
-python flask/train.py
 ```
-Cela entraînera le modèle en utilisant **TensorFlow/Keras et LSTM** et générera un fichier modèle enregistré.
-
-### Exécution du chatbot
-
-#### 📍 Méthode 1 : Lancer avec Flask
-```bash
-python flask/main.py
-```
-Accéder ensuite à l'application via [http://127.0.0.1:5000](http://127.0.0.1:5000).
-
-#### 📍 Méthode 2 : Lancer avec Docker
-```bash
-docker-compose up --build
+📦 MedIQ-ChatBot
+├─ .github
+│  └─ workflows
+│     ├─ CD-pipeline.yml
+│     └─ docker-image.yml
+├─ .gitignore
+├─ README.md
+├─ docker-compose.yml
+├─ flask
+│  ├─ Dockerfile
+│  ├─ chat_model
+│  │  ├─ assets
+│  │  │  └─ .placeholder
+│  │  ├─ fingerprint.pb
+│  │  ├─ keras_metadata.pb
+│  │  ├─ saved_model.pb
+│  │  └─ variables
+│  │     ├─ variables.data-00000-of-00001
+│  │     └─ variables.index
+│  ├─ intents.json
+│  ├─ label_encoder.pickle
+│  ├─ main.py
+│  ├─ requirements.txt
+│  ├─ tokenizer.pickle
+│  └─ train.py
+└─ streamlit
+   ├─ Dockerfile
+   ├─ health_bg.jpg
+   ├─ home.py
+   ├─ pages
+   │  └─ app.py
+   └─ requirements.txt
 ```
 
-## 📂 Structure du projet
-```
-MedIQ-ChatBot/
-│── flask/
-│   │── main.py             # Fichier principal du serveur Flask
-│   │── intents.json        # Définitions des intentions du chatbot
-│   │── train.py            # Script d'entraînement du modèle LSTM
-│   │── model.h5            # Modèle entraîné avec Keras
-│   │── requirements.txt    # Dépendances Python
-│   │── Dockerfile          # Fichier pour créer l'image Docker
-│── .github/workflows/      # Workflows CI/CD
-│── docker-compose.yml      # Déploiement multi-conteneurs
-│── README.md               # Documentation du projet
-```
+## Description of Dataset
+For this task, I used the medical question answer dataset prepared by Lasse Regin Nelson. This dataset is uploaded in his GitHub https://github.com/LasseRegin/medical-question-answer-data. He has gathered such question answer pairs from prominent medical websites such as eHealth Forum, iCliniq, Question Doctors, WebMD where real doctors have provided public answers to the questions asked by patients. We are provided with about 25K question answer pairs. Along with the question answer pairs we are also given tags to efficiently categorize the questions into belonging to a particular disease, etc.
 
-## 📜 License
-Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, le modifier et le partager.
+## Implementation
+1. Developed a healthcare chatbot leveraging natural language processing (NLP) techniques, enabling users to interactively seek medical advice and insights similar to a virtual doctor's appointment
+2. Enhanced performance through lemmatization, tokenization and hyperparameter tuning, attaining 79% reduction in loss
+3. Trained a deep learning LSTM RNN model on question-answer dataset for precise responses to queries/medical concerns, with 94% accuracy
+4. Designed and implemented RESTful APIs using Flask, to expose backend functionalities of the application to end-users
+5. Developed a Streamlit web application that allows users to interact with the trained model
+6. Containerized both Streamlit and Flask microservices using 2 Docker containers, allowing for easier sharing and scalability. Published the Docker images on DockerHub, making it easily accessible to others over the internet (https://hub.docker.com/r/mittal15/flask_mediq/tags, https://hub.docker.com/r/mittal15/streamlit_mediq/tags)
+7. Administered GitHub CI/CD pipeline to automatically build and deploy code, and streamline the development process
+9. Deployed the application on a Google Cloud Platform (GCP) VM instance through a docker compose file, utilizing top-tier cloud computing infrastructure to provide fast and reliable hosting
 
-## 🤝 Contribuer
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une **issue** ou une **pull request**.
+## Installation
+To clone and replicate the project, please follow the steps below:
 
----
-🚀 **Développé avec passion en utilisant LSTM, Keras et TensorFlow !**
+1. Open the command line interface (CLI) on your computer.
+2. Navigate to the directory where you want to clone the repository.
+3. Type `git clone https://github.com/Hmittal15/MedIQ-ChatBot.git` and press Enter. This will clone the repository to your local machine.
+4. Navigate into the cloned repository using `cd your-repo`
+5. Pull the docker images from DockerHub using commands- `docker pull mittal15/flask_mediq:latest` and `docker pull mittal15/streamlit_mediq:latest`
+6. Fire up the dockers using command `docker compose up` from project root directory. Streamlit app should be running on port 8000 and Flask should be running on port 8090. Happy chatting!
 
-# MERCI POUR VOTRE ATTENTION
+## Application demo:-
+![Demo GIF](https://github.com/Hmittal15/MedIQ-ChatBot/assets/108916132/423d76c6-98fd-4365-8fee-a55f45fd6cd6)
+
+
+## You can find me on <a href="https://www.linkedin.com/in/doha-idrissi-mounadi-68b9801a4/"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" width="17" height="17" /></a>
