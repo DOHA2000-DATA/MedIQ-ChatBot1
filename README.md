@@ -81,3 +81,4 @@ Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une **issue** o
 ---
 🚀 **Développé avec passion en utilisant LSTM, Keras et TensorFlow !**
 
+# MERCI POUR VOTRE ATTENTION
